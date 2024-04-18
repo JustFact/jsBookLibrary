@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+    background-color: rgb(35, 35, 35);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.book-container {
+    padding: 20px 70px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(auto-fill,minmax(100px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    border: 5px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+#add-book {
+    width: 200px;
+    height: 60px;
+
+    background-color: aliceblue;
+    color: black;
+    
+    font-size: 26px;
+    border-radius: 30px;
+
+    align-self: center;
+    justify-self: center;
+}
+
+#add-book-dialog {
+    margin: auto;
+}
