@@ -13,7 +13,7 @@ const myLibrary = [
     }
 ];
 
-function Book(title, author, pages, isRead){
+function Book(title, author, pages, isRead = false){
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -30,6 +30,7 @@ function addBookToLibrary(){
 
 function displayBooks(){
     const bookContainer = document.querySelector('.book-container');
+    let tempBooks = [];
     for(book of myLibrary){
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
@@ -47,16 +48,39 @@ function displayBooks(){
         bookPages.textContent = `Pages: ${book.pages}`
 
         bookCard.append(bookTitle, bookAuthor, bookPages);
-        bookContainer.append(bookCard);
+        tempBooks.push(bookCard)
     }
+    bookContainer.replaceChildren(...tempBooks);
 }
 
 
 const newBook = document.querySelector('#add-book');
 const newBookDialog = document.querySelector('#add-book-dialog');
+const submitBook = document.querySelector('.submitBook');
 
 newBook.addEventListener('click', ()=>{
     newBookDialog.showModal();
+})
+
+submitBook.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const title = document.querySelector('#title');
+    const author = document.querySelector('#author');
+    const pages = document.querySelector('#pages');
+    const isBookRead = document.querySelector('input[name=isBookRead]:checked');
+
+    if(title.value === '' || author.value === '' || pages.value === ''){
+        newBookDialog.close();
+        return;
+    }
+    const myBook = new Book(title.value, author.value, pages.value, isBookRead.value);
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+
+    myLibrary.unshift(myBook);
+    newBookDialog.close();
+    displayBooks();
 })
 
 displayBooks();

@@ -8,15 +8,19 @@
     <title>jsBookLibrary</title>
   </head>
   <body>
-    <div class="book-container">
+    <div class="container">
       <button id="add-book">New Book</button>
       <dialog id="add-book-dialog">
         <form>
           <label for="title"
-            >Title<input id="title" type="text" autofocus
+            >Title<input id="title" type="text" autofocus required
           /></label>
-          <label for="author">Author<input id="author" type="text" /></label>
-          <label for="pages">Pages<input id="pages" type="number" /></label>
+          <label for="author"
+            >Author<input id="author" type="text" required
+          /></label>
+          <label for="pages"
+            >Pages<input id="pages" type="number" required
+          /></label>
           <fieldset>
             <legend>Have you read this book?</legend>
             <div>
@@ -34,6 +38,7 @@
                 name="isBookRead"
                 id="isBookReadNo"
                 value="false"
+                checked
               />
               <label for="isBookReadNo">No</label>
             </div>
@@ -42,5 +47,6 @@
         </form>
       </dialog>
     </div>
+    <div class="book-container"></div>
   </body>
 </html>
