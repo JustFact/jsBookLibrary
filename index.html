@@ -11,8 +11,34 @@
     <div class="book-container">
       <button id="add-book">New Book</button>
       <dialog id="add-book-dialog">
-        <form method="dialog">
-          <button>OK</button>
+        <form>
+          <label for="title"
+            >Title<input id="title" type="text" autofocus
+          /></label>
+          <label for="author">Author<input id="author" type="text" /></label>
+          <label for="pages">Pages<input id="pages" type="number" /></label>
+          <fieldset>
+            <legend>Have you read this book?</legend>
+            <div>
+              <input
+                type="radio"
+                name="isBookRead"
+                id="isBookReadYes"
+                value="true"
+              />
+              <label for="isBookReadYes">Yes</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="isBookRead"
+                id="isBookReadNo"
+                value="false"
+              />
+              <label for="isBookReadNo">No</label>
+            </div>
+          </fieldset>
+          <button class="submitBook">OK</button>
         </form>
       </dialog>
     </div>

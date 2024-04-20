@@ -42,4 +42,24 @@ body {
 
 #add-book-dialog {
     margin: auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#add-book-dialog > form {
+    display: flex;
+    flex-flow: column;
+}
+
+#add-book-dialog > form label{
+    text-align: right; 
+}
+
+
+#add-book-dialog > form label > input{
+    margin-left: 10px;
+}
+
+#add-book-dialog > form > * {
+    margin-bottom: 5px;
 }
