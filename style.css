@@ -29,6 +29,33 @@ body {
     padding: 10px;
     color: aliceblue;
     font-size: 20px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.book-card .delete-button {
+    border: 3px solid white;
+    border-radius: 10px;
+    grid-row: 1 / -1;
+    grid-column: 2;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    width: 80px;
+    height: 60px;
+}
+
+.book-card .delete-button:hover .icon{
+    fill: rgb(255, 129, 129);
+    width: 44px;
+}
+
+.book-card .icon{
+    fill: aliceblue;
+    width: 42px;
 }
 
 #add-book {
