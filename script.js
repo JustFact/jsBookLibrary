@@ -31,6 +31,7 @@ function addBookToLibrary(){
 function displayBooks(){
     const bookContainer = document.querySelector('.book-container');
     let tempBooks = [];
+    let index = 0
     for(book of myLibrary){
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
@@ -50,11 +51,25 @@ function displayBooks(){
         const deleteButton = document.createElement('div');
         deleteButton.classList.add('delete-button')
         deleteButton.innerHTML = '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>trash-can-outline</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>'
+        deleteButton.setAttribute('data-index',index++);
 
         bookCard.append(bookTitle, bookAuthor, bookPages, deleteButton);
         tempBooks.push(bookCard)
     }
     bookContainer.replaceChildren(...tempBooks);
+    
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    
+    for(delButton of deleteButtons){
+        delButton.addEventListener('click',(e)=>{
+            console.log(e.currentTarget.dataset.index);
+            //FINISH THIS
+            myLibrary.splice(e.currentTarget.dataset.index,1);
+            displayBooks();
+        },
+    )
+    }
+
 }
 
 
