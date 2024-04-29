@@ -30,22 +30,34 @@ body {
     color: aliceblue;
     font-size: 20px;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
 }
 
-.book-card .delete-button {
+.book-card .delete-button, .book-card .read-button {
     border: 3px solid white;
     border-radius: 10px;
-    grid-row: 1 / -1;
-    grid-column: 2;
     display: grid;
     align-items: center;
     justify-content: center;
     justify-self: center;
     width: 80px;
     height: 60px;
+}
+
+.book-card .read-button {
+    grid-row: 1 / -1;
+    grid-column: 2;
+}
+
+.book-card .delete-button {
+    grid-row: 1 / -1;
+    grid-column: 3;
+}
+
+.book-card .read-button:hover .icon {
+    fill: rgb(129, 146, 255);
 }
 
 .book-card .delete-button:hover .icon{
