@@ -101,13 +101,13 @@ submitBook.addEventListener('click', (e)=>{
     const title = document.querySelector('#title');
     const author = document.querySelector('#author');
     const pages = document.querySelector('#pages');
-    const isBookRead = document.querySelector('input[name=isBookRead]:checked');
+    const isBookRead = document.querySelector('input[name=isBookRead]');
 
     if(title.value === '' || author.value === '' || pages.value === ''){
         newBookDialog.close();
         return;
     }
-    const myBook = new Book(title.value, author.value, pages.value, isBookRead.value);
+    const myBook = new Book(title.value, author.value, pages.value, isBookRead.checked);
     title.value = '';
     author.value = '';
     pages.value = '';
