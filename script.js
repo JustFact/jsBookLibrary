@@ -51,7 +51,11 @@ function displayBooks(){
 
         const readButton = document.createElement('div');
         readButton.classList.add('read-button')
-        readButton.innerHTML = '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-outline</title><path d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z" /></svg>';
+        let readicon = '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-closed</title><path d="M12 17.5C8.2 17.5 4.8 15.4 3.2 12H1C2.7 16.4 7 19.5 12 19.5S21.3 16.4 23 12H20.8C19.2 15.4 15.8 17.5 12 17.5Z" /></svg>'
+        if(book.isRead){
+            readicon = '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-outline</title><path d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z" /></svg>'
+        }
+        readButton.innerHTML = readicon;
 
         const deleteButton = document.createElement('div');
         deleteButton.classList.add('delete-button')
@@ -76,9 +80,8 @@ function displayBooks(){
     const readButtons = document.querySelectorAll('.read-button');
     for(readBtn of readButtons){
         readBtn.addEventListener('click', (e)=>{
-            // console.log(e.currentTarget.parentNode.dataset.index);
             myLibrary[e.currentTarget.parentNode.dataset.index].isRead = !myLibrary[e.currentTarget.parentNode.dataset.index].isRead
-            // console.log(myLibrary[e.currentTarget.parentNode.dataset.index])
+            displayBooks();
         })
     }
 
