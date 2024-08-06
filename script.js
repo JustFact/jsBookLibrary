@@ -13,13 +13,16 @@ const myLibrary = [
     }
 ];
 
-function Book(title, author, pages, isRead = false){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead
+class Book{
 
-    this.info = function(){
+    constructor(title, author, pages, isRead = false){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
+
+    info(){
         return (this.name + ' by ' + this.author + ', ' + this.pages + ', ' + this.isRead)
     }
 }
